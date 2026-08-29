@@ -2,7 +2,7 @@
 
 DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Pianos"
 DIRNAME="Zynthian Salamander Grand"
-DOWNLOAD_URL="https://github.com/jlearman/zynthian-salamander-grand/archive/refs/heads/main.zip"
+DOWNLOAD_URL="https://github.com/jlearman/zynthian-salamander-grand/archive/refs/tags/main.zip"
 
 do_install() {
     set -ex
