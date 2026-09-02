@@ -1,0 +1,14 @@
+title: "Osiris Piano for Zynthian"
+icon: "Art/vs+kl.png"
+author: "Sam Gossner, DSmolken"
+license: "CC0"
+source_url: "https://github.com/jlearman/zynthian-osiris-piano.git"
+size: "25MB"
+content: "soundfonts/Piano (sfz)"
+description: "Soft warm grand piano.
+
+Osiris Piano is a unique quiet piano, a worn Yamaha C2 grand recorded at half-
+stick with the soft pedal down and very low dynamics.
+
+This version removes several features of the original Osiris piano at
+https://github.com/sfzinstruments/Osiris_Piano to achieve a small footprint."
