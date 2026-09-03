@@ -3,7 +3,7 @@
 DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Percussion"
 DIRNAME="Terkelsen Marimba"
 REPO="Terkelsen.Marimba"
-DOWNLOAD_URL="https://github.com/sfzinstruments/$REPO/archive/refs/heads/main.zip"
+DOWNLOAD_URL="https://github.com/sfzinstruments/$REPO/archive/refs/heads/master.zip"
 
 do_install() {
     set -ex
