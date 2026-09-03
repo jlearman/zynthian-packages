@@ -1,9 +1,10 @@
 #!/bin/bash
 
 DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Pianos"
-BRANCH="master"
-DOWNLOAD_URL="https://github.com/zynthian/jlearman.jRhodes3d/archive/refs/heads/$BRANCH.zip"
 DIRNAME="jRhodes3d"
+REPO="jlearman.jRhodes3d"
+BRANCH="master"
+DOWNLOAD_URL="https://github.com/zynthian/$REPO/archive/refs/heads/$BRANCH.zip"
 
 do_install() {
     set -ex
@@ -12,7 +13,7 @@ do_install() {
     wget -q "$DOWNLOAD_URL"
     unzip -q "$BRANCH.zip"
     rm -f "$BRANCH.zip"
-    mv "jlearman.$DIRNAME-$BRANCH" "$DIRNAME"
+    mv "$REPO-$BRANCH" "$DIRNAME"
     rm -rf "$DIRNAME/package"
     mv "$DIRNAME/jRhodes3d-demo.mp3" "$ZYNTHIAN_MY_DATA_DIR/files/Audio/Tracks"
     set +x
