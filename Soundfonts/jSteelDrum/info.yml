@@ -1,0 +1,38 @@
+title: "jSteelDrum"
+icon: "Art/steel drum.jpg"
+author: "Jeff Learman"
+license: "CC0"
+source_url: "https://github.com/sfzinstruments/jlearman.SteelDrum"
+size: "44MB"
+content: "soundfonts/sfz/Percussion (sfz)"
+description: "C Steel Pan (Steel Drum)
+
+- Hand-made oil-drum steel drum.
+- 24 notes sampled, C4 (middle C) to B5
+- 5 velocity layers, with or without velocity crossfades
+- 3 or 4 samples per zone (that is, per note per layer)
+- Stereo 16 bit, 44.1 KHz samples
+- Unlooped
+- 44 MB, FLAC format
+
+There are two versions of the .sfz file, one with velocity crossfades and one without.
+The velocity crossfades work extremely well, and since we play only a few notes at
+a time on steel drum, the extra voice requirement is reasonable, even on Zynthian.
+
+## About the instrument
+
+This is a sampling of a steel drum (a.k.a. 'steel pan') hand-made in Trinidad and sold
+by Hopetown Music of Long Beach CA, around 2005.  (See photo & PDF.)
+The samples were recorded in September 2021.
+
+Samples were recorded in mid-side stereo using an AT4033a as the mid mic and a Studio Projects
+B3 as the side mic.
+
+## Controls
+
+Use the Mod wheel (CC1) to control stereo depth.  With the mod wheel in the center (50%),
+the stereo depth is 100% (normal.)  Pull the wheel all the way down to get pure mono, or push above
+50% to get an extra wide image, or anything in between.  When you load the sampleset,
+the depth will be 100% even if the mod wheel is not at zero, but if you move the mod
+wheel, the depth will change accordingly.
+"
