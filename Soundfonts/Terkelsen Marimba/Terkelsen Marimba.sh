@@ -10,10 +10,10 @@ do_install() {
     mkdir -p "$DST_DIR"
     cd $DST_DIR
     wget -q "$DOWNLOAD_URL"
-    unzip -q "main.zip"
-    rm -rf "main.zip"
-    rm -rf "$REPO-main/package"
-    mv "$REPO-main" "$DIRNAME"
+    unzip -q "master.zip"
+    rm -rf "master.zip"
+    rm -rf "$REPO-master/package"
+    mv "$REPO-master" "$DIRNAME"
     set +x
     echo "installed"
 }
