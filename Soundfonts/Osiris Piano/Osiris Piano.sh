@@ -2,7 +2,7 @@
 
 DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Pianos"
 DIRNAME="Osiris Piano"
-REPO="zynthian-osiris-grand"
+REPO="zynthian-osiris-piano"
 DOWNLOAD_URL="https://github.com/jlearman/$REPO/archive/refs/heads/main.zip"
 
 do_install() {
