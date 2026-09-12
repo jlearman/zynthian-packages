@@ -1,0 +1,30 @@
+title: "Piano IRs"
+icon: "Art/steinway-b-strings.jpg"
+author: "Jeff Learman"
+license: "CC0"
+source_url: "https://github.com/jlearman/PianoIRs"
+size: "5MB"
+content: "IRs (flac)"
+restart_ui: False
+description: "Impulse Response files from a grand piano harp, with sustain pedal down, including:
+
+- Accurate Salamander Grand (10s)
+- Accurate Salamander Grand (4s)
+- Accurate Salamander Grand (2s)
+- Yamaha CP4 CFX Grand Piano (10s)
+- Yamaha CP4 CFX Grand Piano (4s)
+
+Initially intended for use with PianoRes or zPianoRes plugins to simulate
+the effect of full-plate resonance on a grand piano with the sustain pedal
+down, for sampled pianos, these are also interesting in their own right.
+
+Suitable for use with zPianoRes, PianoRes, or any convolver such as X42.
+
+For zPianoRes and PianoRes, short files are best, as the plugin is active
+only when the sustain pedal is down, and this is sufficient to regenerate
+resonance for long sustains.  But when used as a normal impulse file for
+any convolver and with arbitrary audio input, longer files will reverberate
+longer (up to the duration specified at the end of the filename.)
+
+Want to find out what your guitar would sound like when played inside
+a nice big grand piano?"
