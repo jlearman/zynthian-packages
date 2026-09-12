@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DST_DIR="$ZYNTHIAN_DATA_DIR/IRs/PianoIRs"
+DST_DIR="$ZYNTHIAN_DATA_DIR/files/IRs/"
 DIRNAME="PianoIRs"
 REPO="PianoIRs"
 DOWNLOAD_URL="https://github.com/jlearman/$REPO"
