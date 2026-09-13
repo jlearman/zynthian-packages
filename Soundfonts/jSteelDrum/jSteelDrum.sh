@@ -3,17 +3,15 @@
 DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Percussion"
 DIRNAME="jSteelDrum"
 REPO="jlearman.SteelDrum"
-DOWNLOAD_URL="https://github.com/sfzinstruments/$REPO/archive/refs/heads/main.zip"
+DOWNLOAD_URL="https://github.com/sfzinstruments/$REPO.git"
 
 do_install() {
     set -ex
     mkdir -p "$DST_DIR"
     cd $DST_DIR
-    wget -q "$DOWNLOAD_URL"
-    unzip -q "main.zip"
-    rm -rf "main.zip"
-    rm -rf "$REPO-main/package"
-    mv "$REPO-main" "$DIRNAME"
+    git clone --depth 1 "$DOWNLOAD_URL"
+    rm -rf "$REPO/.git"
+    mv "$REPO" "$DIRNAME"
     set +x
     echo "installed"
 }
