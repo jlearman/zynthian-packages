@@ -1,0 +1,26 @@
+title: "Soul Band Brass Section"
+icon: "Art/EWF-brass.jpg"
+author: "Jeff Learman (sfz only)"
+license: "CC0"
+source_url: "https://github.com/jlearman/zynthian-soul-brass.git"
+size: "1KB"
+content: "sfz/Brass/SoulBrass"
+description: "Soul Band Brass Section for live keyboard use.<b> REQUIRES VSCO2!</b>
+
+Each note plays up to four instruments:
+
+- trombone<br/>
+- tenor sax<br/>
+- alto sax<br/>
+- trumpet<br/>
+
+Each instrument has volume and octave shift CC control.
+By default, all instruments play at the same volume,
+with no octave shift.
+
+<b>NOTE! This sfz uses samples from other packages. REQUIRED PACKAGES:</b>
+
+- Zynthian Factory SFZ's<br/>
+- VSCO2<br/>
+
+Image by Shein from Jersey City, USA - Earth, Wind, and Fire, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=5194719"
