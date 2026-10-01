@@ -110,10 +110,7 @@
     let searchQuery = '';
 
     // Adjust repository pointer constants to match your target asset deployment setup
-    const REPO_OWNER = 'zynthian';
-    const REPO_NAME = 'zynthian-packages';
-    const BRANCH = 'main';
-    const RAW_BASE_URL = `https://githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}`;
+    const RAW_BASE_URL = "https://zynthian.github.io/zynthian-packages";
 
     async function initializeCatalog() {
         try {
@@ -160,7 +157,7 @@
             // Safe, dynamic URL construction using array splitting to avoid syntax framework text-clipping issues
             let imgUrl = "";
             if (pkg.icon && pkg.category && pkg.id) {
-                imgUrl = [RAW_BASE_URL, pkg.category, pkg.id, pkg.icon].join('/');
+                imgUrl = [pkg.category, pkg.id, pkg.icon].join('/');
             }
             
             const col = document.createElement('div');
