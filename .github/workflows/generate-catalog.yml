@@ -28,7 +28,7 @@ jobs:
               category=$(basename "$(dirname "$(dirname "$file")")")
               
               # Convert YAML to JSON, injecting the ID and category parameters automatically
-              yq eval -o=json ". + {\"id\": \"$pkg_id\", \"category\": \"$category\"}" "$file" | jq -c '.' >> temp_catalog.json
+              yq eval '. + {"id": $id, "category": $cat}' --arg id "$pkg_id" --arg cat "$category" -o=json "$file" | jq -c '.' >> temp_catalog.json
               echo "," >> temp_catalog.json
           done
           
