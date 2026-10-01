@@ -30,7 +30,6 @@ jobs:
               # Convert YAML to JSON, injecting the ID and category parameters automatically
               export PKG_ID="$pkg_id"
               export CATEGORY="$category"
-              # 2. Ejecutamos yq usando strenv() para capturar las variables de entorno de forma nativa
               yq eval '. + {"id": strenv(PKG_ID), "category": strenv(CATEGORY)}' -o=json "$file" | jq -c '.' >> temp_catalog.json
 
               echo "," >> temp_catalog.json
@@ -42,14 +41,12 @@ jobs:
           fi
           echo "]" >> packages.json
           rm -f temp_catalog.json
-          cat packages.json
+          #cat packages.json
 
       - name: Deploy Catalog file back to Repository
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-          cat packages.json
           # Only commit changes if packages.json has actually updated or changed
           git diff --quiet packages.json || (
             echo "Commiting updated packages.json"
