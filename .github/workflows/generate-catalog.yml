@@ -28,7 +28,11 @@ jobs:
               category=$(basename "$(dirname "$(dirname "$file")")")
               
               # Convert YAML to JSON, injecting the ID and category parameters automatically
-              yq eval '. + {"id": $id, "category": $cat}' --arg id "$pkg_id" --arg cat "$category" -o=json "$file" | jq -c '.' >> temp_catalog.json
+              export PKG_ID="$pkg_id"
+              export CATEGORY="$category"
+              # 2. Ejecutamos yq usando strenv() para capturar las variables de entorno de forma nativa
+              yq eval '. + {"id": strenv(PKG_ID), "category": strenv(CATEGORY)}' -o=json "$file" | jq -c '.' >> temp_catalog.json
+
               echo "," >> temp_catalog.json
           done
           
