@@ -38,18 +38,21 @@ jobs:
           
           # Clean up the trailing comma from the final element loop and wrap the array brackets
           if [ -s temp_catalog.json ]; then
-              sed '$d' temp_catalog.json >> packages.json
+              sed '$ s/,$//' temp_catalog.json >> packages.json
           fi
           echo "]" >> packages.json
           rm -f temp_catalog.json
+          cat packages.json
 
       - name: Deploy Catalog file back to Repository
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
+
+          cat packages.json
           # Only commit changes if packages.json has actually updated or changed
           git diff --quiet packages.json || (
+            echo "Commiting updated packages.json"
             git add packages.json
             git commit -m "Automated catalog index build [skip ci]"
             git push
