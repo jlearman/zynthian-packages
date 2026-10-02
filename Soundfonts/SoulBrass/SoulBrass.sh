@@ -1,9 +1,9 @@
 #!/bin/bash
 
-DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Percussion"
-DIRNAME="jSteelDrum"
-REPO="jlearman.SteelDrum"
-DOWNLOAD_URL="https://github.com/sfzinstruments/$REPO.git"
+DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Brass"
+DIRNAME="SoulBrass"
+REPO="zynthian-soul-brass"
+DOWNLOAD_URL="https://github.com/jlearman/$REPO"
 
 do_install() {
     set -ex

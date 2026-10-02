@@ -1,17 +1,20 @@
 #!/bin/bash
 
-DESTINY_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz"
-GIT_REPO_URL="https://github.com/sgossner/VSCO-2-CE.git"
+DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz"
+DIRNAME="VSCO2"
+DOWNLOAD_URL="https://github.com/sgossner/VSCO-2-CE/archive/refs/tags/1.1.0.zip"
+ZIP_DIR="VSCO-2-CE-1.1.0" # directory name at top of zip file
 
 do_install() {
-    mkdir -p "$DESTINY_DIR"
-    git clone --branch SFZ --depth 1 "$GIT_REPO_URL" "$DESTINY_DIR/VSCO2"
+    mkdir -p "$DST_DIR"
+    wget -O - "$DOWNLOAD_URL" | bsdtar -xf - -C "$DST_DIR"
+    mv "$DST_DIR/$ZIP_DIR" "$DST_DIR/$DIRNAME"
     echo "installed"
 }
 
 do_uninstall() {
     if [[ $(is_installed) == "installed" ]]; then
-        rm -rf "$DESTINY_DIR/VSCO2"
+        rm -rf "$DST_DIR/$DIRNAME"
         echo "uninstalled"
     else
         echo "not installed"
@@ -19,7 +22,7 @@ do_uninstall() {
 }
 
 is_installed() {
-    if [[ -d "$DESTINY_DIR/VSCO2" ]]; then
+    if [[ -d "$DST_DIR/$DIRNAME" ]]; then
         echo "installed"
     else
         echo "not installed"

@@ -3,18 +3,15 @@
 DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts/sfz/Pianos"
 DIRNAME="jRhodes3d"
 REPO="jlearman.jRhodes3d"
-BRANCH="master"
-DOWNLOAD_URL="https://github.com/zynthian/$REPO/archive/refs/heads/$BRANCH.zip"
+DOWNLOAD_URL="https://github.com/zynthian/$REPO.git"
 
 do_install() {
     set -ex
     mkdir -p "$DST_DIR"
     cd "$DST_DIR"
-    wget -q "$DOWNLOAD_URL"
-    unzip -q "$BRANCH.zip"
-    rm -f "$BRANCH.zip"
-    mv "$REPO-$BRANCH" "$DIRNAME"
-    rm -rf "$DIRNAME/package"
+    git clone --depth 1 "$DOWNLOAD_URL"
+    rm -rf "$REPO/.git"
+    mv "$REPO" "$DIRNAME"
     mv "$DIRNAME/jRhodes3d-demo.mp3" "$ZYNTHIAN_MY_DATA_DIR/files/Audio/Tracks"
     set +x
     echo "installed"

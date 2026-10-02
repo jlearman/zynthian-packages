@@ -1,0 +1,56 @@
+name: Generate Packages Catalog Index
+on:
+  push:
+    branches:
+      - main  # Adjust if your default branch is different
+
+jobs:
+  build-catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile info.yml files into a single JSON
+        run: |
+          echo "Compiling Zynthian packages catalog..."
+          
+          # Initialize an empty JSON array
+          echo "[" > packages.json
+          
+          # Find all info.yml metadata files recursively across category directories
+          # Convert YAML contents to single-line JSON items separated by commas
+          find . -name "info.yml" -type f | while read -r file; do
+              # Get the folder name to use as a unique package ID key
+              pkg_id=$(basename "$(dirname "$file")")
+              
+              # Extract category name based on the parent structure (e.g., Soundfonts, IRs)
+              category=$(basename "$(dirname "$(dirname "$file")")")
+              
+              # Convert YAML to JSON, injecting the ID and category parameters automatically
+              export PKG_ID="$pkg_id"
+              export CATEGORY="$category"
+              yq eval '. + {"id": strenv(PKG_ID), "category": strenv(CATEGORY)}' -o=json "$file" | jq -c '.' >> temp_catalog.json
+
+              echo "," >> temp_catalog.json
+          done
+          
+          # Clean up the trailing comma from the final element loop and wrap the array brackets
+          if [ -s temp_catalog.json ]; then
+              sed '$ s/,$//' temp_catalog.json >> packages.json
+          fi
+          echo "]" >> packages.json
+          rm -f temp_catalog.json
+          #cat packages.json
+
+      - name: Deploy Catalog file back to Repository
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          # Only commit changes if packages.json has actually updated or changed
+          git diff --quiet packages.json || (
+            echo "Commiting updated packages.json"
+            git add packages.json
+            git commit -m "Automated catalog index build [skip ci]"
+            git push
+          )
