@@ -4,12 +4,17 @@ DESTINY_DIR="$ZYNTHIAN_DATA_DIR/soundfonts"
 URL_BASE="https://os.zynthian.org/packages/Soundfonts/Zynthian Factory SFZs"
 URL_DOWNLOAD="$URL_BASE/sfz.tar.xz"
 URL_DIRLIST="$URL_BASE/dir_list.txt"
+FLAG_FILE="sfz/zynthian-factory-github-sfzs.txt"
 
 # To extract dir_list.txt =>
 # tar -t --no-recursion -f sfz.tar.xz sfz/*/* > dir_list.txt
 
 
 do_install() {
+    if [[ -f "$DESTINY_DIR/$FLAG_FILE" ]] ; then
+        echo "Uninstall Zynthian Factory Github SFZs package first!"
+        exit 1
+    fi
     mkdir -p "$DESTINY_DIR"
     wget -q -O- "$URL_DOWNLOAD" | tar -xJ -C "$DESTINY_DIR"
     echo "installed"
