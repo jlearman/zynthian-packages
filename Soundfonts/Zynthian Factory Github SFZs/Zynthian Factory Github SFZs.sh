@@ -2,7 +2,7 @@
 
 DST_DIR="$ZYNTHIAN_DATA_DIR/soundfonts"
 REPO="zynthian-factory-sfzs"
-URL_BASE="https://github.com/jlearman/zynthian-factory-sfzs"
+URL_BASE="https://github.com/zynthian/zynthian-factory-sfzs"
 FLAG_FILE="sfz/zynthian-factory-github-sfzs.txt"
 
 do_install() {
